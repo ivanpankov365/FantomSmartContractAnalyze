@@ -1,1 +1,1 @@
-# PhantomSmartContractAnalize
+# FantomSmartContractAnalyze
