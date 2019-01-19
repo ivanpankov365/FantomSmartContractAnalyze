@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="http://codemirror.net/lib/codemirror.js"></script>
+    <script src="http://codemirror.net/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fantom</title>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <img src="css/images/Logo.png" height="65" width="320" id="logo">
+    </div>
+</nav>
+<div class="container editor">
+    <h5  class="code_editor_title">Code Editor</h5>
+    <textarea id="code" >
+    </textarea>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            lineWrapping:true,
+            autofocus:true
+        });
+
+        editor.setCursor(2,2);     // это значит поместить курсор на 3 строку (отсчёт от 0), символ 3
+
+        var pos=editor.posFromIndex(3);  //получить координаты 3-ей позиции (строку и символ)
+        editor.setCursor(pos.line,pos.ch);
+
+    </script>
+
+    <h5  class="analyze_title">LLVM analyze results</h5>
+    <div class="analyze_results">
+        <a class="waves-effect waves-light btn">Analyze</a>
+        <ul class="collection with-header">
+            <li class="collection-item">First parameter</li>
+            <li class="collection-item">Second parameter</li>
+            <li class="collection-item">Third parameter</li>
+            <li class="collection-item">Fourth parameter</li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Fantom Code Analyzer</h5>
+                <p class="grey-text text-lighten-4">You can analyze your smart contract code. Estimate gas consumption.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://fantom.foundation/">Fantom Foundation</a></li>
+                    <li><a class="grey-text text-lighten-3" href="http://startblock.online/">StartBlock</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://serialhack.io/page3427824.html">Serial Hacking</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2019 StartBlock
+        </div>
+    </div>
+</footer>
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
